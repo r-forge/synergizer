@@ -1,0 +1,21 @@
+Package: SynergizeR
+Type: Package
+Title: Interface to The Synergizer service for translating
+    between sets of biological identifiers.
+Version: 0.1
+Date: 2011-10-11
+Author: Paolo Sonego <paolo.sonego@gmail.com>
+Maintainer: Paolo Sonego <paolo.sonego@gmail.com>
+Description: This package provides programmatic access to
+    The Synergizer service for translating between sets of
+    biological identifiers.
+Depends:
+    R (>= 2.11.0),
+    RJSONIO,
+    RCurl
+License: GPL-2
+LazyLoad: yes
+Collate:
+    'metamethods.r'
+    'synergizer.r'
+    'zzz.r'
