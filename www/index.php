@@ -43,11 +43,11 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
+<p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
+
 <p> <strong>DISCLAIMER</strong>: I'm not affiliated with <a href="http://llama.mshri.on.ca/" title="Roth Laboratory">Roth Laboratory</a>. This package is meant only as a facility allowing users to access the Synergy server from inside R.</p>
 
 <p> <a href="http://llama.mshri.on.ca/synergizer/doc/" title="The Synergizer: biological id mapping tool">Here</a> you can find more informations about the Synergizer Project and <a href="http://llama.mshri.on.ca/synergizer/translate/" title="Synergizer: biological id mapping tool">here</a> you can access the Interactive Web Interface.</p>
-
-<p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
 
 </body>
 </html>
