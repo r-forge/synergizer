@@ -33,7 +33,7 @@ synergizer <- function( authority = "ensembl",
 						ids = c("snph", "maybe_a_typo", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16"), 
 						file=NULL)
 {
-	Sys.sleep(3) # Mandatory in order to not have user host machine banned from using the service.
+	Sys.sleep(3) # In order to not have user host machine banned from using the service.
 	t <- basicTextGatherer()
 	h <- basicHeaderGatherer()
 
@@ -55,15 +55,11 @@ synergizer <- function( authority = "ensembl",
 		print(output$status.message); break
 		}
 	else response <- fromJSON(output$data)
-	# return(response$result)
-	output <- t(sapply(response$result, '[', seq(max(sapply(response$result, length))))) 
-	# i1=as.matrix(output[,1])
-	# i2=as.matrix(output[,2])
-	# i3=as.matrix(output[,3])
-	# i4 = paste(i2,i3, sep=";")
-	# # output2 <- data.frame(symbol=as.matrix(output[,1],),entrezid=i4)
-	# output2 <- data.frame(deparse(domain)=as.matrix(output[,1]), 
-	#                       deparse(range)=paste(as.matrix[output[,2]]))
-	if(!is.null(file)) write.table(output, file=file, sep="\t")
-	return(data.frame(output))
+	# return(response$result) # to debug
+	# output <- t(sapply(response$result, '[', seq(max(sapply(response$result, length))))) # it works|
+	tmp <- lapply(response$result,unlist); m.l <- max(sapply(tmp, length))
+	output <- t(sapply(tmp, '[', seq(m.l)))
+	colnames(output) <- c( deparse(substitute(domain)), rep(deparse(substitute(range)), m.l-1) ) 
+	if(!is.null(file)) write.table( output, file = file, quote = F, sep = "\t", row.names = FALSE, col.names = TRUE )
+	return( as.data.frame(output, stringsAsFactors=FALSE) )
 }
