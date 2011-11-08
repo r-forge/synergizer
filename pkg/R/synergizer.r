@@ -22,15 +22,13 @@
 #'
 #' \dontrun{
 #' library('SynergizerR')
-#' translated <- synergizer( "ensembl", "Homo sapiens", "hgnc_symbol", "entrezgene", 
-#' c("snph", "chac1", "actn3", "maybe_a_typo", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16") )
-#' }
+#' symbols.ids <- synergizer( authority = "ensembl", species = "Homo sapiens", domain="affy_hg_u95av2", range="hgnc_symbol",ids=c("1939_at","1503_at","1454_at") )
 #'
 synergizer <- function( authority = "ensembl", 
 						species = "Homo sapiens", 
 						domain = "hgnc_symbol", 
 						range = "entrezgene", 
-						ids = c("snph", "maybe_a_typo", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16"), 
+						ids = c("snph", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16"), 
 						file=NULL)
 {
 	Sys.sleep(3) # In order to not have user host machine banned from using the service.
@@ -55,11 +53,19 @@ synergizer <- function( authority = "ensembl",
 		print(output$status.message); break
 		}
 	else response <- fromJSON(output$data)
-	# return(response$result) # to debug
-	# output <- t(sapply(response$result, '[', seq(max(sapply(response$result, length))))) # it works|
-	tmp <- lapply(response$result,unlist); m.l <- max(sapply(tmp, length))
-	output <- t(sapply(tmp, '[', seq(m.l)))
-	colnames(output) <- c( deparse(substitute(domain)), rep(deparse(substitute(range)), m.l-1) ) 
+	# return(response$result) # it output the original list
+	##
+	lens <- sapply(response$result, length)
+	output <- matrix(nrow=length(response$result), ncol=2)
+	for (i in 1:length(response$result)) {
+		output[i,1] = response$result[[i]][1]
+		output[i,2] = paste(response$result[[i]][2:lens[i]],collapse="|")
+	}
+	colnames(output) <- c( deparse(substitute(domain)), deparse(substitute(range)) ) 
+	# # output <- t(sapply(response$result, '[', seq(max(sapply(response$result, length))))) # it works|
+	# tmp <- lapply(response$result,unlist); m.l <- max(sapply(tmp, length))
+	# output <- t(sapply(tmp, '[', seq(m.l)))
+	# colnames(output) <- c( deparse(substitute(domain)), rep(deparse(substitute(range)), m.l-1) ) 
 	if(!is.null(file)) write.table( output, file = file, quote = F, sep = "\t", row.names = FALSE, col.names = TRUE )
 	return( as.data.frame(output, stringsAsFactors=FALSE) )
 }
