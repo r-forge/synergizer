@@ -2,7 +2,7 @@
 \alias{synergizer}
 \title{Translate a set of biological identifiers into an selected alternative.}
 \usage{
-  synergizer(authority = "ensembl", species = "Homo sapiens", domain = "hgnc_symbol", range = "entrezgene", ids = c("snph", "maybe_a_typo", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16"), file = NULL)
+  synergizer(authority = "ensembl", species = "Homo sapiens", domain = "hgnc_symbol", range = "entrezgene", ids = NULL, file = NULL)
 }
 \arguments{
   \item{authority}{A character containing any authoritative
@@ -35,9 +35,9 @@
 \examples{
 \dontrun{
 library('SynergizerR')
-translated <- synergizer( "ensembl", "Homo sapiens", "hgnc_symbol", "entrezgene",
-c("snph", "chac1", "actn3", "maybe_a_typo", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16") )
-}
+symbols.ids <- synergizer( authority = "ensembl", species = "Homo sapiens", domain="affy_hg_u95av2", range="hgnc_symbol",ids=c("1939_at","1503_at","1454_at") )
+
+entrez.ids <- synergizer( authority = "ensembl", species = "Homo sapiens", domain="hgnc_symbol", range="entrezgene",ids=c("snph", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16") )
 }
 \references{
   http://llama.mshri.on.ca/synergizer/translate/
