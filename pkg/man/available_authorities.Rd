@@ -11,8 +11,7 @@
 \examples{
 \dontrun{
 library('SynergizerR')
-available_authorities()
-}
+available_authorities() }
 }
 \references{
   http://llama.mshri.on.ca/synergizer/translate/

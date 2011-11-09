@@ -26,8 +26,7 @@ corresponding to the currently available domain namespaces for the chosen author
 \examples{
 \dontrun{
 library('SynergizerR')
-available_domains('ensembl','homo sapiens')
-}
+available_domains('ensembl','homo sapiens') }
 }
 \references{
   http://llama.mshri.on.ca/synergizer/translate/

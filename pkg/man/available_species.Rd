@@ -23,8 +23,7 @@ species for the chosen authority.}
 \examples{
 \dontrun{
 library('SynergizerR')
-available_species('ensembl')
-}
+available_species('ensembl') }
 }
 \references{
   http://llama.mshri.on.ca/synergizer/translate/

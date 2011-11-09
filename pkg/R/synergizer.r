@@ -24,8 +24,7 @@
 #' library('SynergizerR')
 #' symbols.ids <- synergizer( authority = "ensembl", species = "Homo sapiens", domain="affy_hg_u95av2", range="hgnc_symbol",ids=c("1939_at","1503_at","1454_at") )
 #'
-#' entrez.ids <- synergizer( authority = "ensembl", species = "Homo sapiens", domain="hgnc_symbol", range="entrezgene",ids=c("snph", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16") )
-#' }
+#' entrez.ids <- synergizer( authority = "ensembl", species = "Homo sapiens", domain="hgnc_symbol", range="entrezgene",ids=c("snph", "pja1", "prkdc", "RAD21L1", "Rorc", "kcnk16") ) }
 #'
 synergizer <- function( authority = "ensembl", 
 						species = "Homo sapiens", 

@@ -12,8 +12,7 @@
 \examples{
 \dontrun{
 library('SynergizerR')
-server_version()
-}
+server_version() }
 }
 \references{
   http://llama.mshri.on.ca/synergizer/translate/

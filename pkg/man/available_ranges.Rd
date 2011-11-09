@@ -33,8 +33,7 @@ for the chosen authority, species, and domain namespace.}
 \examples{
 \dontrun{
 library('SynergizerR')
-available_ranges('ensembl','homo sapiens','hgnc_symbol')
-}
+available_ranges('ensembl','homo sapiens','hgnc_symbol') }
 }
 \references{
   http://llama.mshri.on.ca/synergizer/translate/
