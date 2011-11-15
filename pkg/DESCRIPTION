@@ -2,7 +2,7 @@ Package: SynergizeR
 Type: Package
 Title: Interface to The Synergizer service for translating
     between sets of biological identifiers.
-Version: 0.1
+Version: 0.2
 Date: 2011-10-11
 Author: Paolo Sonego <paolo.sonego@gmail.com>
 Maintainer: Paolo Sonego <paolo.sonego@gmail.com>
